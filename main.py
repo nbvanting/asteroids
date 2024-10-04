@@ -42,6 +42,13 @@ def main() -> None:
 				print("Game over!")
 				sys.exit()
 
+		for asteroid in asteroids:
+			for shot in shots:
+				if asteroid.is_colliding(shot):
+					shot.kill()
+					asteroid.split()
+
+
 		screen.fill(color="black")
 
 		for obj in drawable:
